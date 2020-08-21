@@ -67,9 +67,12 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Your finished project must include all of the following requirements:
 
-- [ ] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable)
+## A: Homepage
+- [x] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable)
   - home component
     - route
+
+## B: Pizza Form
 - [ ] A form with a "/pizza" route
   - pizza component
     - route
@@ -79,7 +82,11 @@ Your finished project must include all of the following requirements:
     - [ ] A checklist for toppings - at least 4 (hint: name each separately!)
     - [ ] Text input for special instructions
     - [ ] An Add to Order button that submits form and returns a database record of name, size, toppings and special instructions
+
+## C: Validation
 - [ ] Validation for name - name must be at least 2 characters
+
+## D: Testing
 - [ ] Testing - Implement the following tests in Cypress:
   - [ ] test that you can add text to the box
   - [ ] test that you can select multiple toppings

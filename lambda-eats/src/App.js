@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Button } from 'reactstrap';
+import { Link, Route, Switch } from 'react-router-dom';
+
+import Home from './Components/Home';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Test</h1>
-        <Button color="primary" size="lg">Large Button</Button>{' '}
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
       </header>
     </div>
   );
