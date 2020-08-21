@@ -16,7 +16,7 @@ const Pizza = () => {
 
   // STATE:
   //post
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState();
   //form
   const [formState, setForm] = useState(base);
   //button
@@ -105,7 +105,7 @@ const Pizza = () => {
       <h1>Order Pizza Here!</h1>
       <form onSubmit={formSubmit}>
         <label htmlFor="name">
-          Name:
+          Name:&#160;
           <input
             type="text"
             name="name"
@@ -117,7 +117,7 @@ const Pizza = () => {
         </label>
 
         <label htmlFor="size">
-          Pizza Size:
+          Pizza Size:&#160;
           <select name="size" data-cy="size">
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
