@@ -52,3 +52,11 @@ label {
   padding: .5rem;
   font-size: calc(5px + 2vmin);
 }
+
+.visible {
+  visibility: null;
+}
+
+.hidden {
+  visibility: hidden;
+}

@@ -32,6 +32,8 @@ const Pizza = () => {
     special: "",
   });
 
+  const [visState, setVisState] = useState("hidden")
+
   //INPUT CHANGE
   const data = [];
   const inputChange = (e) => {
@@ -65,7 +67,7 @@ const Pizza = () => {
     name: yup
       .string()
       .test(
-        "len",
+        "length",
         "Name must be more than 2 characters",
         (val) => val.length > 2
       ),
@@ -192,13 +194,14 @@ const Pizza = () => {
           type="submit"
           color="warning"
           data-cy="submit"
+          onClick={() => {setVisState('visible')}}
         >
           Submit
         </Button>
 
         <br/>
         
-        <h2>
+        <h2 className={visState} >
           {" "}
           Congratulations! Pizza is on it's way! {JSON.stringify(post, null, 2)}
         </h2>
