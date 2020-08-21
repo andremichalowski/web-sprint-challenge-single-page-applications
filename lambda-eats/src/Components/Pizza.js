@@ -102,6 +102,7 @@ const Pizza = () => {
 
   return (
     <div>
+      <h1>Order Pizza Here!</h1>
       <form onSubmit={formSubmit}>
         <label htmlFor="name">
           Name:
@@ -183,15 +184,20 @@ const Pizza = () => {
           />
           {errors.special.length > 0 ? <p>{errors.special}</p> : null}
         </label>
+        
+        <br />
 
         <Button
           disabled={buttonDisabled}
           type="submit"
-          color="danger"
+          color="warning"
           data-cy="submit"
         >
           Submit
         </Button>
+
+        <br/>
+        
         <h2>
           {" "}
           Congratulations! Pizza is on it's way! {JSON.stringify(post, null, 2)}
