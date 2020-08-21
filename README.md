@@ -54,7 +54,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 - [x] Push commits: `git push origin <firstName-lastName>`
 
 ## - B
-- [] Download dependencies
+- [x] Download dependencies
   - create-react-app
     - axios
     - yup
