@@ -93,7 +93,7 @@ Your finished project must include all of the following requirements:
 
 
 ## C: Validation
-- [ ] Validation for name - name must be at least 2 characters
+- [x] Validation for name - name must be at least 2 characters
 
 ## D: Testing
 - [ ] Testing - Implement the following tests in Cypress:
