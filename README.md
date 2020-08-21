@@ -73,15 +73,19 @@ Your finished project must include all of the following requirements:
     - route
 
 ## B: Pizza Form
-- [ ] A form with a "/pizza" route
-  - pizza component
-    - route
-    - form
-    - [ ] A name text input field
-    - [ ] A dropdown for pizza size
-    - [ ] A checklist for toppings - at least 4 (hint: name each separately!)
-    - [ ] Text input for special instructions
-    - [ ] An Add to Order button that submits form and returns a database record of name, size, toppings and special instructions
+- [x] A form with a "/pizza" route
+  - [x] Part 1 - Form:
+    - pizza component
+      - route
+      - form
+      - [x] A name text input field
+      - [x] A dropdown for pizza size
+      - [x] A checklist for toppings - at least 4 (hint: name each separately!)
+      - [x] Text input for special instructions
+      - [x] An Add to Order button that submits form and returns a database record of name, size, toppings and special instructions
+  - [ ] Part 2 Functionality:
+    - 
+
 
 ## C: Validation
 - [ ] Validation for name - name must be at least 2 characters
