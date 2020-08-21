@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Switch>
-          <Route path="/" component={Home} />
-          <Route path="pizza" component={Pizza} />
+          <Route exact path="/" component={Home} />
+          <Route path="/pizza" component={Pizza} />
         </Switch>
       </header>
     </div>

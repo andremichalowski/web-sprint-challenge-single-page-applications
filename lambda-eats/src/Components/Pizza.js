@@ -1,7 +1,105 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import * as yup from "yup";
 import { Button } from "reactstrap";
 
 const Pizza = () => {
+  const base = {
+    name: "",
+    size: "",
+    peperoni: false,
+    mushroom: false,
+    onion: false,
+    sausage: false,
+    special: "",
+  };
+
+  // STATE:
+  //post
+  const [post, setPost] = useState({});
+  //form
+  const [formState, setForm] = useState(base);
+  //button
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  //errors
+  const [errors, setErrors] = useState({
+    name: "",
+    size: "",
+    peperoni: "",
+    mushroom: "",
+    onion: "",
+    sausage: "",
+    special: "",
+  });
+
+  //INPUT CHANGE
+  const data = [];
+  const inputChange = (e) => {
+    e.persist();
+    const newFormData = {
+      ...formState,
+      [e.target.name]:
+        e.target.type === "checkbox" ? e.target.checked : e.target.value,
+    };
+    validateChange(e);
+    setForm(newFormData);
+  };
+
+  //VALIDATE
+  const validateChange = (e) => {
+    yup
+      .reach(pizzaSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+        console.log("success");
+      })
+      .catch((err) => {
+        console.log("error:", err);
+        setErrors({ ...errors, [e.target.name]: err.errors[0] });
+      });
+  };
+
+  //SCHEMA
+  const pizzaSchema = yup.object().shape({
+    name: yup
+      .string()
+      .test(
+        "len",
+        "Name must be more than 2 characters",
+        (val) => val.length > 2
+      ),
+    size: yup.boolean().oneOf(["Small", "Medium", "Large"]),
+    pepperoni: yup.boolean().oneOf([true, false]),
+    mushroom: yup.boolean().oneOf([true, false]),
+    onion: yup.boolean().oneOf([true, false]),
+    sausage: yup.boolean().oneOf([true, false]),
+    special: yup.string(),
+  });
+
+  //SUBMIT
+  const formSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("https://reqres.in/api/users", formState)
+      .then((res) => {
+        setPost(res.data);
+        data.push(post);
+        setForm(base);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    if (formState.name.length < 3) {
+      setButtonDisabled(true);
+    } else {
+      setButtonDisabled(false);
+    }
+  }, [formState]);
+
   return (
     <div>
       <form onSubmit={formSubmit}>
